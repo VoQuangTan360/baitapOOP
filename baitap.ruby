@@ -7,16 +7,24 @@ class Canbo
     end 
     def nhapthongtin
         puts "Ho: "
-        hovaten=gets.to_i
+        @hovaten=gets.to_s
         puts"tuoi: "
-        tuoi=gets.to_i
+        @tuoi=gets.to_i
         puts"gio tinh: "
-        giotinh=gets.to_i
-        puts"diachi"
-        diachi=gets.to_i
+        @giotinh=gets.to_s
+        puts"diachi: "
+        @diachi=gets.to_s
         
     end   
-    def inthongtin
+    def inthongtin 
+        puts "#{@hovaten}"
+        puts "#{@tuoi}"
+        puts "#{@giotinh}"
+        puts "#{@diachi}"
+    end
+
+    def getname
+        return @hovaten
         
     end
 end
@@ -56,6 +64,27 @@ class Nhanvien < Canbo
     
 end
 
+class QLCB
+    cba_149=Array.new
+    cb=Canbo.new("","","","")
+    cb.nhapthongtin
+    # puts cb.getname
 
-cb=Canbo.new("tttt","","","")
-cb.nhapthongtin
+    length = cba_149.length
+    cba_149.insert(length+1,cb)
+
+    puts "Nhap tu khoa: "
+    key = gets.to_s
+
+
+    list_149 = cba_149.select{ |canbo| canbo.getname.include?(key) }
+    puts "Ket qua tim kiem"
+    
+  
+end
+# ruby baitap.ruby
+
+
+
+
+
